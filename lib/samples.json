@@ -1,0 +1,50 @@
+[
+  {
+    "code": "eng_Latn",
+    "name": "English",
+    "bcp47": "en",
+    "text": "Nadal's head to head record against the Canadian is 7–2."
+  },
+  {
+    "code": "ind_Latn",
+    "name": "Indonesian",
+    "bcp47": "id",
+    "text": "Adu rekor Nadal melawan petenis asal Kanada tersebut yaitu 7â€“2."
+  },
+  {
+    "code": "vie_Latn",
+    "name": "Vietnamese",
+    "bcp47": "vi",
+    "text": "Thành tích đối đầu của Nadal trước đối thủ người Canada này là 7-2."
+  },
+  {
+    "code": "tha_Thai",
+    "name": "Thai",
+    "bcp47": "th",
+    "text": "สถิติการแข่งเฮด-ทู-เฮดของนาดาลกับผู้เล่นชาวแคนาดาคือ 7-2"
+  },
+  {
+    "code": "tam_Taml",
+    "name": "Tamil",
+    "bcp47": "ta",
+    "text": "அந்த கனடா நாட்டவருடன் நடாலின் நேருக்கு நேர் மோதிய சாதனை 7-2 ஆகும்."
+  },
+  {
+    "code": "mya_Mymr",
+    "name": "Burmese",
+    "bcp47": "my",
+    "text": "နေဒယ်၏ ကနေဒီးယန်း နှင့် ထိပ်တိုက်ရင်ဆိုင်မှုမှတ်တမ်းမှာ ၇-၂ ဖြစ်သည်။"
+  },
+  {
+    "code": "khm_Khmr",
+    "name": "Khmer",
+    "bcp47": "km",
+    "text": "កំណត់ត្រារបស់ Nadal ប្រឆាំងនឹងជនជាតិកាណាដា គឺ 7–2។"
+  },
+  {
+    "code": "hin_Deva",
+    "name": "Hindi",
+    "bcp47": "hi",
+    "text": "कनाडियन के खिलाफ नडाल का सीधा रिकॉर्ड 7-2 है।"
+  }
+]

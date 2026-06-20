@@ -1,0 +1,514 @@
+{
+  "_meta": {
+    "corpus": "FLORES-200 dev split, 50 parallel sentences",
+    "license": "CC-BY-SA 4.0 (FLORES-200 / NLLB, Meta AI)",
+    "note": "Fertility = tokens / words. Words via Intl.Segmenter (granularity:word, isWordLike) so spaceless scripts count correctly. ratioVsEng = fertility / English fertility for the same tokenizer = relative cost multiplier for equivalent content.",
+    "sentence_count": 50
+  },
+  "tokenizers": [
+    {
+      "id": "o200k",
+      "label": "GPT-4o",
+      "family": "OpenAI"
+    },
+    {
+      "id": "cl100k",
+      "label": "GPT-4 / 3.5",
+      "family": "OpenAI"
+    },
+    {
+      "id": "llama3",
+      "label": "Llama-3.1 / SEA-LION v3",
+      "family": "Meta / AI Singapore"
+    }
+  ],
+  "englishBaseline": {
+    "o200k": 1.264,
+    "cl100k": 1.266,
+    "llama3": 1.266
+  },
+  "languages": [
+    {
+      "code": "eng_Latn",
+      "name": "English",
+      "bcp47": "en"
+    },
+    {
+      "code": "ind_Latn",
+      "name": "Indonesian",
+      "bcp47": "id"
+    },
+    {
+      "code": "zsm_Latn",
+      "name": "Malay",
+      "bcp47": "ms"
+    },
+    {
+      "code": "tha_Thai",
+      "name": "Thai",
+      "bcp47": "th"
+    },
+    {
+      "code": "vie_Latn",
+      "name": "Vietnamese",
+      "bcp47": "vi"
+    },
+    {
+      "code": "tgl_Latn",
+      "name": "Filipino",
+      "bcp47": "fil"
+    },
+    {
+      "code": "khm_Khmr",
+      "name": "Khmer",
+      "bcp47": "km"
+    },
+    {
+      "code": "lao_Laoo",
+      "name": "Lao",
+      "bcp47": "lo"
+    },
+    {
+      "code": "mya_Mymr",
+      "name": "Burmese",
+      "bcp47": "my"
+    },
+    {
+      "code": "tam_Taml",
+      "name": "Tamil",
+      "bcp47": "ta"
+    },
+    {
+      "code": "tel_Telu",
+      "name": "Telugu",
+      "bcp47": "te"
+    },
+    {
+      "code": "ben_Beng",
+      "name": "Bengali",
+      "bcp47": "bn"
+    },
+    {
+      "code": "hin_Deva",
+      "name": "Hindi",
+      "bcp47": "hi"
+    },
+    {
+      "code": "mal_Mlym",
+      "name": "Malayalam",
+      "bcp47": "ml"
+    },
+    {
+      "code": "kan_Knda",
+      "name": "Kannada",
+      "bcp47": "kn"
+    },
+    {
+      "code": "sin_Sinh",
+      "name": "Sinhala",
+      "bcp47": "si"
+    }
+  ],
+  "rows": [
+    {
+      "code": "eng_Latn",
+      "name": "English",
+      "bcp47": "en",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.264,
+          "tokensPerSentence": 27,
+          "charsPerToken": 4.57,
+          "ratioVsEng": 1
+        },
+        "cl100k": {
+          "fertility": 1.266,
+          "tokensPerSentence": 27,
+          "charsPerToken": 4.56,
+          "ratioVsEng": 1
+        },
+        "llama3": {
+          "fertility": 1.266,
+          "tokensPerSentence": 27,
+          "charsPerToken": 4.56,
+          "ratioVsEng": 1
+        }
+      }
+    },
+    {
+      "code": "ind_Latn",
+      "name": "Indonesian",
+      "bcp47": "id",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.674,
+          "tokensPerSentence": 33.5,
+          "charsPerToken": 4.07,
+          "ratioVsEng": 1.32
+        },
+        "cl100k": {
+          "fertility": 2.056,
+          "tokensPerSentence": 41.2,
+          "charsPerToken": 3.32,
+          "ratioVsEng": 1.62
+        },
+        "llama3": {
+          "fertility": 2.045,
+          "tokensPerSentence": 41,
+          "charsPerToken": 3.33,
+          "ratioVsEng": 1.62
+        }
+      }
+    },
+    {
+      "code": "zsm_Latn",
+      "name": "Malay",
+      "bcp47": "ms",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.684,
+          "tokensPerSentence": 35.1,
+          "charsPerToken": 4.09,
+          "ratioVsEng": 1.33
+        },
+        "cl100k": {
+          "fertility": 2.086,
+          "tokensPerSentence": 43.5,
+          "charsPerToken": 3.31,
+          "ratioVsEng": 1.65
+        },
+        "llama3": {
+          "fertility": 2.071,
+          "tokensPerSentence": 43.2,
+          "charsPerToken": 3.33,
+          "ratioVsEng": 1.64
+        }
+      }
+    },
+    {
+      "code": "tha_Thai",
+      "name": "Thai",
+      "bcp47": "th",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.667,
+          "tokensPerSentence": 52.9,
+          "charsPerToken": 2.4,
+          "ratioVsEng": 1.32
+        },
+        "cl100k": {
+          "fertility": 3.663,
+          "tokensPerSentence": 116.2,
+          "charsPerToken": 1.09,
+          "ratioVsEng": 2.89
+        },
+        "llama3": {
+          "fertility": 1.9,
+          "tokensPerSentence": 60.3,
+          "charsPerToken": 2.1,
+          "ratioVsEng": 1.5
+        }
+      }
+    },
+    {
+      "code": "vie_Latn",
+      "name": "Vietnamese",
+      "bcp47": "vi",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.316,
+          "tokensPerSentence": 38.3,
+          "charsPerToken": 3.5,
+          "ratioVsEng": 1.04
+        },
+        "cl100k": {
+          "fertility": 2.087,
+          "tokensPerSentence": 60.7,
+          "charsPerToken": 2.21,
+          "ratioVsEng": 1.65
+        },
+        "llama3": {
+          "fertility": 1.257,
+          "tokensPerSentence": 36.6,
+          "charsPerToken": 3.67,
+          "ratioVsEng": 0.99
+        }
+      }
+    },
+    {
+      "code": "tgl_Latn",
+      "name": "Filipino",
+      "bcp47": "fil",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.658,
+          "tokensPerSentence": 43.9,
+          "charsPerToken": 3.59,
+          "ratioVsEng": 1.31
+        },
+        "cl100k": {
+          "fertility": 1.975,
+          "tokensPerSentence": 52.3,
+          "charsPerToken": 3.01,
+          "ratioVsEng": 1.56
+        },
+        "llama3": {
+          "fertility": 1.958,
+          "tokensPerSentence": 51.8,
+          "charsPerToken": 3.04,
+          "ratioVsEng": 1.55
+        }
+      }
+    },
+    {
+      "code": "khm_Khmr",
+      "name": "Khmer",
+      "bcp47": "km",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 2.842,
+          "tokensPerSentence": 86.1,
+          "charsPerToken": 1.83,
+          "ratioVsEng": 2.25
+        },
+        "cl100k": {
+          "fertility": 7.424,
+          "tokensPerSentence": 224.8,
+          "charsPerToken": 0.7,
+          "ratioVsEng": 5.86
+        },
+        "llama3": {
+          "fertility": 7.424,
+          "tokensPerSentence": 224.8,
+          "charsPerToken": 0.7,
+          "ratioVsEng": 5.86
+        }
+      }
+    },
+    {
+      "code": "lao_Laoo",
+      "name": "Lao",
+      "bcp47": "lo",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 7.358,
+          "tokensPerSentence": 197.5,
+          "charsPerToken": 0.65,
+          "ratioVsEng": 5.82
+        },
+        "cl100k": {
+          "fertility": 8.603,
+          "tokensPerSentence": 230.9,
+          "charsPerToken": 0.55,
+          "ratioVsEng": 6.8
+        },
+        "llama3": {
+          "fertility": 7.932,
+          "tokensPerSentence": 212.9,
+          "charsPerToken": 0.6,
+          "ratioVsEng": 6.27
+        }
+      }
+    },
+    {
+      "code": "mya_Mymr",
+      "name": "Burmese",
+      "bcp47": "my",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 2.355,
+          "tokensPerSentence": 84.5,
+          "charsPerToken": 1.88,
+          "ratioVsEng": 1.86
+        },
+        "cl100k": {
+          "fertility": 8.425,
+          "tokensPerSentence": 302.3,
+          "charsPerToken": 0.52,
+          "ratioVsEng": 6.65
+        },
+        "llama3": {
+          "fertility": 8.425,
+          "tokensPerSentence": 302.3,
+          "charsPerToken": 0.52,
+          "ratioVsEng": 6.65
+        }
+      }
+    },
+    {
+      "code": "tam_Taml",
+      "name": "Tamil",
+      "bcp47": "ta",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 3.111,
+          "tokensPerSentence": 53.6,
+          "charsPerToken": 2.76,
+          "ratioVsEng": 2.46
+        },
+        "cl100k": {
+          "fertility": 11.252,
+          "tokensPerSentence": 194,
+          "charsPerToken": 0.76,
+          "ratioVsEng": 8.89
+        },
+        "llama3": {
+          "fertility": 11.252,
+          "tokensPerSentence": 194,
+          "charsPerToken": 0.76,
+          "ratioVsEng": 8.89
+        }
+      }
+    },
+    {
+      "code": "tel_Telu",
+      "name": "Telugu",
+      "bcp47": "te",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 2.951,
+          "tokensPerSentence": 50.9,
+          "charsPerToken": 2.54,
+          "ratioVsEng": 2.33
+        },
+        "cl100k": {
+          "fertility": 12.488,
+          "tokensPerSentence": 215.3,
+          "charsPerToken": 0.6,
+          "ratioVsEng": 9.86
+        },
+        "llama3": {
+          "fertility": 12.486,
+          "tokensPerSentence": 215.3,
+          "charsPerToken": 0.6,
+          "ratioVsEng": 9.86
+        }
+      }
+    },
+    {
+      "code": "ben_Beng",
+      "name": "Bengali",
+      "bcp47": "bn",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 2.364,
+          "tokensPerSentence": 46.5,
+          "charsPerToken": 2.75,
+          "ratioVsEng": 1.87
+        },
+        "cl100k": {
+          "fertility": 7.864,
+          "tokensPerSentence": 154.6,
+          "charsPerToken": 0.83,
+          "ratioVsEng": 6.21
+        },
+        "llama3": {
+          "fertility": 7.809,
+          "tokensPerSentence": 153.5,
+          "charsPerToken": 0.83,
+          "ratioVsEng": 6.17
+        }
+      }
+    },
+    {
+      "code": "hin_Deva",
+      "name": "Hindi",
+      "bcp47": "hi",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 1.68,
+          "tokensPerSentence": 42.9,
+          "charsPerToken": 2.97,
+          "ratioVsEng": 1.33
+        },
+        "cl100k": {
+          "fertility": 4.878,
+          "tokensPerSentence": 124.5,
+          "charsPerToken": 1.02,
+          "ratioVsEng": 3.85
+        },
+        "llama3": {
+          "fertility": 2.645,
+          "tokensPerSentence": 67.5,
+          "charsPerToken": 1.89,
+          "ratioVsEng": 2.09
+        }
+      }
+    },
+    {
+      "code": "mal_Mlym",
+      "name": "Malayalam",
+      "bcp47": "ml",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 3.294,
+          "tokensPerSentence": 51.4,
+          "charsPerToken": 2.77,
+          "ratioVsEng": 2.61
+        },
+        "cl100k": {
+          "fertility": 14.619,
+          "tokensPerSentence": 228.1,
+          "charsPerToken": 0.62,
+          "ratioVsEng": 11.55
+        },
+        "llama3": {
+          "fertility": 14.608,
+          "tokensPerSentence": 227.9,
+          "charsPerToken": 0.62,
+          "ratioVsEng": 11.54
+        }
+      }
+    },
+    {
+      "code": "kan_Knda",
+      "name": "Kannada",
+      "bcp47": "kn",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 3.111,
+          "tokensPerSentence": 54.8,
+          "charsPerToken": 2.51,
+          "ratioVsEng": 2.46
+        },
+        "cl100k": {
+          "fertility": 13.248,
+          "tokensPerSentence": 233.2,
+          "charsPerToken": 0.59,
+          "ratioVsEng": 10.46
+        },
+        "llama3": {
+          "fertility": 13.248,
+          "tokensPerSentence": 233.2,
+          "charsPerToken": 0.59,
+          "ratioVsEng": 10.46
+        }
+      }
+    },
+    {
+      "code": "sin_Sinh",
+      "name": "Sinhala",
+      "bcp47": "si",
+      "byTokenizer": {
+        "o200k": {
+          "fertility": 3.416,
+          "tokensPerSentence": 74.4,
+          "charsPerToken": 1.77,
+          "ratioVsEng": 2.7
+        },
+        "cl100k": {
+          "fertility": 10.728,
+          "tokensPerSentence": 233.7,
+          "charsPerToken": 0.56,
+          "ratioVsEng": 8.47
+        },
+        "llama3": {
+          "fertility": 10.667,
+          "tokensPerSentence": 232.3,
+          "charsPerToken": 0.57,
+          "ratioVsEng": 8.43
+        }
+      }
+    }
+  ]
+}
