@@ -4,8 +4,8 @@ export function Card({ children, className = "" }: { children: React.ReactNode; 
   return <div className={`rounded-2xl border border-white/10 bg-white/[0.03] ${className}`}>{children}</div>;
 }
 
-export function SectionLabel({ children }: { children: React.ReactNode }) {
-  return <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-400">{children}</div>;
+export function SectionLabel({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`mb-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-gray-400 ${className}`}>{children}</div>;
 }
 
 export function Caveat({ children, title = "Honest caveat" }: { children: React.ReactNode; title?: string }) {

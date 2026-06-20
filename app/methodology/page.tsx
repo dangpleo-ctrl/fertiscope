@@ -41,7 +41,7 @@ export default function MethodologyPage() {
         </Card>
       </div>
 
-      <SectionLabel>How words are counted</SectionLabel>
+      <SectionLabel className="mt-8">How words are counted</SectionLabel>
       <Card className="p-5 text-sm leading-relaxed text-gray-300">
         Word counts use the browser/Node <code className="rounded bg-white/10 px-1 py-0.5 text-xs">Intl.Segmenter</code> with{" "}
         <code className="rounded bg-white/10 px-1 py-0.5 text-xs">granularity:&quot;word&quot;</code>, counting only word-like
@@ -49,7 +49,7 @@ export default function MethodologyPage() {
         count one giant &ldquo;word&rdquo; and badly distort fertility.
       </Card>
 
-      <SectionLabel>Tokenizers &amp; data</SectionLabel>
+      <SectionLabel className="mt-8">Tokenizers &amp; data</SectionLabel>
       <Card className="space-y-3 p-5 text-sm leading-relaxed text-gray-300">
         <p>
           Three real tokenizer families run in-app: <b className="text-white">GPT-4o</b> (o200k_base) and{" "}
@@ -65,7 +65,7 @@ export default function MethodologyPage() {
         </p>
       </Card>
 
-      <SectionLabel>Known limitations</SectionLabel>
+      <SectionLabel className="mt-8">Known limitations</SectionLabel>
       <Card className="p-5 text-sm leading-relaxed text-gray-300">
         <ul className="list-disc space-y-1.5 pl-5">
           <li>Fertility varies by domain; the leaderboard reflects FLORES news/wiki text, not your exact corpus — use the Analyzer on your own text.</li>
