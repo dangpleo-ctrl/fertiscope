@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+# never commit secrets — set OPENROUTER_API_KEY in your shell, or a local (ignored) .env
+.env
+.env.*
+# generated working artifacts (the committed benchmark_results.csv is the keeper)
+data/benchmark_log.jsonl
+data/sample_prompt.txt

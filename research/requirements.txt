@@ -1,0 +1,2 @@
+matplotlib>=3.8
+# benchmark_runner.py uses only the Python standard library (no extra deps).
