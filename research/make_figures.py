@@ -116,7 +116,7 @@ def fig1_token_tax(d, rows):
     n = len(order)
     h = 0.26
     ys = list(range(n))
-    fig, ax = plt.subplots(figsize=(9, 10))
+    fig, ax = plt.subplots(figsize=(10.5, 11))
     for k in range(n):
         if k % 2 == 0:
             ax.axhspan(k - 0.5, k + 0.5, color="#f6f7f9", zorder=0)
@@ -126,24 +126,17 @@ def fig1_token_tax(d, rows):
         bars = ax.barh([y + offs for y in ys], vals, height=h,
                        color=C[tok], label=TOK_LABEL[tok], zorder=3)
         for y, v in zip(ys, vals):
-            ax.text(v + 0.12, y + offs, f"{v:.1f}×", va="center",
-                    ha="left", fontsize=6.5, color=C[tok])
-    ax.axvline(1.0, color="#374151", lw=1, ls="--", zorder=2)
-    ax.text(1.0, n - 0.3, "English = 1×", fontsize=8, color="#374151",
-            ha="center", va="bottom")
+            ax.text(v + 0.15, y + offs, f"{v:.1f}×", va="center",
+                    ha="left", fontsize=9, color=C[tok])
+    ax.axvline(1.0, color="#374151", lw=1.1, ls="--", zorder=2)
     ax.set_yticks(ys)
-    ax.set_yticklabels(names)
-    ax.set_xlabel("Cost multiplier vs. English for the same content (tokens per parallel sentence, same tokenizer)")
-    ax.set_title("Figure 1.  The multilingual token tax across 16 languages × 3 tokenizers")
+    ax.set_yticklabels(names, fontsize=12)
+    ax.set_xlabel("Cost vs. English for the same content  (× as many tokens, same tokenizer)", fontsize=12)
     ax.set_xlim(0, 13)
     ax.xaxis.set_major_locator(MultipleLocator(2))
+    ax.tick_params(axis="x", labelsize=11)
     ax.grid(axis="x", color="#e5e7eb", zorder=0)
-    ax.legend(loc="lower right", frameon=False)
-    fig.text(0.5, 0.005,
-             "Tokens to encode the same parallel FLORES-200 sentence, ÷ English. Brahmic-derived & "
-             "mainland-SEA scripts pay 7–11× on the legacy GPT-4/3.5 tokenizer (Burmese worst, 11.2×); "
-             "the GPT-4o tokenizer cuts most to ~2×.",
-             ha="center", fontsize=8.5, color="#6b7280")
+    ax.legend(loc="lower right", frameon=True, framealpha=0.9, fontsize=11.5)
     save(fig, "fig1_token_tax")
 
 
@@ -172,17 +165,13 @@ def fig2_exhaustion(d, rows):
     ax.axhline(CAP_WINDOW, color="#9ca3af", lw=1, ls=":", zorder=2)
     ax.text(turns[-1], CAP_WINDOW, f"  8192-token window", va="bottom", ha="right",
             fontsize=8.5, color="#9ca3af")
-    ax.set_xlabel("Conversation turn")
-    ax.set_ylabel("Cumulative context consumed (tokens)")
-    ax.set_title("Figure 2.  Context-window exhaustion rate by language (GPT-4/3.5 tokenizer)")
+    ax.set_xlabel("Conversation turn", fontsize=12)
+    ax.set_ylabel("Cumulative context consumed (tokens)", fontsize=12)
     ax.set_ylim(0, 11000)
     ax.set_xlim(1, 40)
+    ax.tick_params(labelsize=11)
     ax.grid(color="#eef0f2", zorder=0)
-    ax.legend(loc="upper left", frameon=False, ncol=2)
-    fig.text(0.5, -0.02,
-             f"Deterministic: cumulative tokens = ({WORDS_PER_TURN} words/turn) × fertility × turn. "
-             "Tamil/Malayalam fill the 4096 window in ~3 turns; English takes ~32. Not an accuracy claim.",
-             ha="center", fontsize=8.5, color="#6b7280")
+    ax.legend(loc="upper left", frameon=True, framealpha=0.9, ncol=2, fontsize=11.5)
     save(fig, "fig2_exhaustion")
 
 
@@ -208,16 +197,13 @@ def fig3_capacity(d, rows):
     cols = ["#ef4444" if v < 10 else "#f59e0b" if v < 25 else "#10b981" for v in vals]
     ax.barh(ys, vals, color=cols, zorder=3)
     for y, v in zip(ys, vals):
-        ax.text(v + 0.5, y, str(v), va="center", fontsize=8)
+        ax.text(v + 0.6, y, str(v), va="center", fontsize=10, fontweight="medium")
     ax.set_yticks(ys)
-    ax.set_yticklabels(names)
+    ax.set_yticklabels(names, fontsize=12)
     ax.invert_yaxis()
-    ax.set_xlabel(f"# of {WORDS_PER_TURN}-word in-context examples that fit in an 8192-token window")
-    ax.set_title("Figure 3.  In-context example capacity collapses for high-fertility languages")
+    ax.set_xlabel(f"# of {WORDS_PER_TURN}-word in-context examples that fit in an 8192-token window", fontsize=12)
+    ax.tick_params(axis="x", labelsize=11)
     ax.grid(axis="x", color="#eef0f2", zorder=0)
-    fig.text(0.5, 0.005,
-             "GPT-4/3.5 tokenizer, 512-token reply reserve. English fits ~60 examples; Tamil ~6; Malayalam ~5.",
-             ha="center", fontsize=8.5, color="#6b7280")
     save(fig, "fig3_incontext_capacity")
 
 
@@ -298,35 +284,33 @@ def _fig4_heatmap(rows, data):
         k = (m, L, t)
         return agg[k] / cnt[k] if k in cnt else float("nan")
 
-    fig, axes = plt.subplots(1, len(models), figsize=(3.9 * len(models), 3.5),
+    clean = {"openai/gpt-4o-mini": "GPT-4o-mini", "openai/gpt-3.5-turbo": "GPT-3.5-Turbo",
+             "meta-llama/llama-3.1-8b-instruct": "Llama-3.1-8B"}
+    fig, axes = plt.subplots(1, len(models), figsize=(4.1 * len(models), 3.7),
                              squeeze=False, sharey=True)
     axes = list(axes[0])
     im = None
     for idx, (ax, m) in enumerate(zip(axes, models)):
         M = [[mean(m, L, t) for t in targets] for L in langs]
         im = ax.imshow(M, cmap="RdYlGn", vmin=0.8, vmax=1.0, aspect="auto")
-        ax.set_xticks(range(len(targets))); ax.set_xticklabels([f"{t}%" for t in targets])
-        ax.set_yticks(range(len(langs))); ax.set_yticklabels(langs if idx == 0 else [])
-        ax.set_title(m.split("/")[-1], fontsize=10)
-        ax.set_xlabel("context fill")
+        ax.set_xticks(range(len(targets))); ax.set_xticklabels([f"{t}%" for t in targets], fontsize=11)
+        ax.set_yticks(range(len(langs)))
+        if idx == 0:
+            ax.set_yticklabels(langs, fontsize=12)
+        else:
+            ax.tick_params(labelleft=False)
+        ax.set_title(clean.get(m, m.split("/")[-1]), fontsize=13, fontweight="bold")
+        ax.set_xlabel("context fill", fontsize=11.5)
         ax.set_xticks([x - 0.5 for x in range(1, len(targets))], minor=True)
         ax.set_yticks([y - 0.5 for y in range(1, len(langs))], minor=True)
         ax.grid(which="minor", color="white", linewidth=2.5)
         ax.tick_params(which="minor", length=0)
         for i in range(len(langs)):
             for j in range(len(targets)):
-                ax.text(j, i, f"{M[i][j]:.2f}", ha="center", va="center", fontsize=8.5,
-                        color="#0f172a", fontweight="medium")
-    axes[0].set_ylabel("language (low→high fertility)")
-    fig.suptitle("Figure 4.  Measured needle recall — no degradation at ≤12k tokens",
-                 fontweight="bold", fontsize=13, y=1.05)
-    fig.colorbar(im, ax=axes, shrink=0.7, label="recall rate")
-    fig.text(0.5, -0.10,
-             "Mean recall over needle positions 5–95%; base window 8192 (fill 50/100/150% ≈ 4k/8k/12k tokens). "
-             "Every model ≥0.99 across all languages; the lone dip (gpt-3.5 / Malayalam, 0.93) is a single trial. "
-             "Consistent with FertiScope's window-dependent risk model: within the models' windows the fertility tax "
-             "does not yet cause recall loss — degradation is a near/beyond-window phenomenon (future work).",
-             ha="center", fontsize=7.5, color="#6b7280", wrap=True)
+                ax.text(j, i, f"{M[i][j]:.2f}", ha="center", va="center", fontsize=11,
+                        color="#0f172a", fontweight="bold")
+    axes[0].set_ylabel("language  (low → high cost)", fontsize=12)
+    fig.colorbar(im, ax=axes, shrink=0.75, label="recall rate")
     save(fig, "fig4_multiturn_degradation")
 
 
