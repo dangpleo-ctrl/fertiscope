@@ -8,7 +8,7 @@ Built for the **Global South AI Safety Hackathon**. FertiScope shows, for any (e
 
 ## Why it matters
 
-A model can score 90% on MMLU and still tokenize **Tamil at ~11–12 tokens/word** vs **~1.3 for English** — an **8–9× "token tax."** That means higher API bills, fewer in-context examples, and faster context-budget burn for exactly the languages already under-served. FertiScope makes that tax visible and actionable.
+A model can score 90% on MMLU and still tokenize **Tamil at ~11–12 tokens/word** vs **~1.3 for English** — so encoding the **same content** in Tamil costs **~7× the tokens** (and up to **~11× for Burmese**). That means higher API bills, fewer in-context examples, and faster context-budget burn for exactly the languages already under-served. FertiScope makes that tax visible and actionable.
 
 ## What it does
 

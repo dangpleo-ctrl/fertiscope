@@ -2,7 +2,7 @@
   "_meta": {
     "corpus": "FLORES-200 dev split, 50 parallel sentences",
     "license": "CC-BY-SA 4.0 (FLORES-200 / NLLB, Meta AI)",
-    "note": "Fertility = tokens / words. Words via Intl.Segmenter (granularity:word, isWordLike) so spaceless scripts count correctly. ratioVsEng = fertility / English fertility for the same tokenizer = relative cost multiplier for equivalent content.",
+    "note": "Fertility = tokens / words. Words via Intl.Segmenter (granularity:word, isWordLike) so spaceless scripts count correctly. ratioVsEng = fertility / English fertility for the same tokenizer (a per-WORD fragmentation ratio). For same-CONTENT cost (an API bill for equivalent meaning), use tokensPerSentence / English tokensPerSentence, which is segmenter-independent; the two ratios differ because languages differ in words per sentence.",
     "sentence_count": 50
   },
   "tokenizers": [

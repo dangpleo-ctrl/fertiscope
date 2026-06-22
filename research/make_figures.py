@@ -90,6 +90,13 @@ def ratio(rows, code, tok):
     return rows[code]["byTokenizer"][tok]["ratioVsEng"]
 
 
+def cost_ratio(rows, code, tok):
+    """Same-content cost: tokens to encode the parallel FLORES sentence, ÷ English.
+    This is the correct 'identical content' cost multiplier (NOT the per-word fertility ratio)."""
+    eng = rows["eng_Latn"]["byTokenizer"][tok]["tokensPerSentence"]
+    return rows[code]["byTokenizer"][tok]["tokensPerSentence"] / eng
+
+
 def save(fig, name):
     for ext in ("png", "pdf"):
         fig.savefig(OUT / f"{name}.{ext}", bbox_inches="tight",
@@ -103,7 +110,7 @@ def save(fig, name):
 # ===========================================================================
 def fig1_token_tax(d, rows):
     order = [r["code"] for r in sorted(
-        d["rows"], key=lambda r: r["byTokenizer"]["cl100k"]["ratioVsEng"])]
+        d["rows"], key=lambda r: r["byTokenizer"]["cl100k"]["tokensPerSentence"])]
     names = [rows[c]["name"] for c in order]
     toks = ["o200k", "cl100k", "llama3"]
     n = len(order)
@@ -115,7 +122,7 @@ def fig1_token_tax(d, rows):
             ax.axhspan(k - 0.5, k + 0.5, color="#f6f7f9", zorder=0)
     for i, tok in enumerate(toks):
         offs = (i - 1) * h
-        vals = [ratio(rows, c, tok) for c in order]
+        vals = [cost_ratio(rows, c, tok) for c in order]
         bars = ax.barh([y + offs for y in ys], vals, height=h,
                        color=C[tok], label=TOK_LABEL[tok], zorder=3)
         for y, v in zip(ys, vals):
@@ -126,15 +133,16 @@ def fig1_token_tax(d, rows):
             ha="center", va="bottom")
     ax.set_yticks(ys)
     ax.set_yticklabels(names)
-    ax.set_xlabel("Cost multiplier vs. English (fertility ÷ English fertility, same tokenizer)")
+    ax.set_xlabel("Cost multiplier vs. English for the same content (tokens per parallel sentence, same tokenizer)")
     ax.set_title("Figure 1.  The multilingual token tax across 16 languages × 3 tokenizers")
-    ax.set_xlim(0, 16)
+    ax.set_xlim(0, 13)
     ax.xaxis.set_major_locator(MultipleLocator(2))
     ax.grid(axis="x", color="#e5e7eb", zorder=0)
     ax.legend(loc="lower right", frameon=False)
     fig.text(0.5, 0.005,
-             "Identical FLORES-200 sentences. Brahmic/Dravidian scripts pay 8–12× on the legacy "
-             "GPT-4/3.5 tokenizer; the newer GPT-4o tokenizer cuts that to ~2.5×.",
+             "Tokens to encode the same parallel FLORES-200 sentence, ÷ English. Brahmic-derived & "
+             "mainland-SEA scripts pay 7–11× on the legacy GPT-4/3.5 tokenizer (Burmese worst, 11.2×); "
+             "the GPT-4o tokenizer cuts most to ~2×.",
              ha="center", fontsize=8.5, color="#6b7280")
     save(fig, "fig1_token_tax")
 
