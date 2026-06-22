@@ -53,3 +53,9 @@ Full deployment options (Vercel, tunnels, etc.) in **[DEPLOY.md](./DEPLOY.md)**.
 ## Data & attribution
 
 Bundled corpus: **FLORES-200** (No Language Left Behind, Meta AI) — **CC-BY-SA 4.0**. Grounded in the deep-research report *"Tokenizer Fertility and Multi-Turn Degradation"* (2026).
+
+## License
+
+- **Code** (this repository): **MIT** — see [LICENSE](./LICENSE). © 2026 Leo Dang.
+- **Bundled data**: the FLORES-200 corpus (`data/flores200-seed-parallel.json`) and the leaderboard derived from it (`data/leaderboard.json`) are **CC-BY-SA 4.0** (NLLB / Meta AI), *not* MIT — attribute the source and share derivatives alike.
+- **Dependencies** keep their own licenses (`js-tiktoken`, `llama3-tokenizer-js`, Next.js, etc., mostly MIT / Apache-2.0).
